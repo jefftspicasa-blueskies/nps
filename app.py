@@ -1,6 +1,6 @@
-# app.py - Versão Unificada
+# app.py - Versão Unificada Completa
 import streamlit as st
-import psycop2
+import psycopg2
 from psycopg2.extras import RealDictCursor
 import pandas as pd
 from datetime import datetime, timedelta
