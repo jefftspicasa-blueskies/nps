@@ -873,4 +873,101 @@ def render_survey_app():
         st.divider()
         
         # Seção 5: Comentários abertos
-        st.markdown("<div class='section-header'><h3>✍️ Seção 5: Com
+        st.markdown("<div class='section-header'><h3>✍️ Seção 5: Comentários</h3></div>", unsafe_allow_html=True)
+        
+        comentarios_lideranca = st.text_area(
+            "Minhas considerações em aspectos gerais em relação à liderança:",
+            placeholder="Compartilhe sua opinião sobre a liderança, comunicação e reconhecimento...",
+            height=150
+        )
+        
+        st.divider()
+        
+        # Botão de submissão do formulário
+        submitted = st.form_submit_button("📤 Enviar Respostas", use_container_width=True)
+        
+        if submitted:
+            if area == "Selecione sua área":
+                st.error("❌ Selecione a área em que você atua para enviar a pesquisa.")
+            else:
+                respostas = {
+                    'enps_nota': enps_nota,
+                    'lideranca_geral': lideranca_geral,
+                    'lideranca_desenvolvimento': lideranca_desenvolvimento,
+                    'lideranca_seguranca': lideranca_seguranca,
+                    'lideranca_feedback': lideranca_feedback,
+                    'comunicacao_clareza': comunicacao_clareza,
+                    'comunicacao_informacoes': comunicacao_informacoes,
+                    'reconhecimento_geral': reconhecimento_geral,
+                    'reconhecimento_justica': reconhecimento_justica,
+                    'reconhecimento_eficacia': reconhecimento_eficacia,
+                    'comentarios_lideranca': comentarios_lideranca,
+                    'area': area,
+                    'usuario_ip': obter_ip_real(),
+                    'user_agent': st.query_params.get('user_agent', 'Streamlit App')
+                }
+                
+                if salvar_respostas(respostas):
+                    st.session_state.respostas_enviadas = True
+                    st.rerun()
+
+    # Sidebar com informações
+    with st.sidebar:
+        st.image("https://img.icons8.com/color/96/000000/rating.png", width=80)
+        st.title("ℹ️ Informações")
+        st.markdown("---")
+        st.markdown(f"""
+        **📋 Sobre a pesquisa**
+        
+        Esta pesquisa avalia:
+        - 👥 Liderança
+        - 💬 Comunicação  
+        - 🏆 Reconhecimento
+        
+        **⏱️ Tempo estimado:** 3-5 minutos
+        
+        **🔒 Privacidade:** 
+        Suas respostas são anônimas e confidenciais.
+        
+        **🛡️ Resposta única:**
+        Cada usuário pode responder apenas uma vez.
+        
+        **🗄️ Schema:** `{config.DB_SCHEMA}`
+        
+        **🖥️ Status:** {fingerprint_status}
+        """)
+        
+        st.markdown("---")
+        # Botão para acessar o dashboard administrativo
+        if st.button("🔐 Acessar Dashboard Admin", use_container_width=True):
+            st.session_state.show_admin = True
+            st.rerun()
+
+# ============================================
+# CONTROLE DE NAVEGAÇÃO
+# ============================================
+
+def main():
+    """Função principal que controla a navegação entre os modos"""
+    
+    # Inicializar estado de navegação
+    if 'show_admin' not in st.session_state:
+        st.session_state.show_admin = False
+    
+    # Se estiver no modo admin, autenticar e mostrar dashboard
+    if st.session_state.show_admin:
+        if autenticar_admin():
+            render_admin_dashboard()
+            # Botão para voltar à pesquisa
+            if st.sidebar.button("⬅️ Voltar para a Pesquisa", use_container_width=True):
+                st.session_state.show_admin = False
+                st.rerun()
+    else:
+        render_survey_app()
+
+# ============================================
+# EXECUÇÃO PRINCIPAL
+# ============================================
+
+if __name__ == "__main__":
+    main()
