@@ -18,6 +18,7 @@ st.set_page_config(
     layout="wide"
 )
 
+
 # Inicializar configuração
 config = Config()
 control = DuplicidadeControl()
