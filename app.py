@@ -379,7 +379,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 2**")
-        st.caption("Avaliação geral da liderança")
+        st.caption("Em aspectos gerais (respeito, suporte, comunicação, justiça), como você avalia a postura de seu líder no dia a dia?")
     with col2:
         lideranca_geral = st.slider(
             "Avaliação geral da liderança",
@@ -392,7 +392,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 3**")
-        st.caption("Recomendação para desenvolvimento")
+        st.caption("O quanto você recomendaria sua liderança como alguém que apoia seu desenvolvimento?")
     with col2:
         lideranca_desenvolvimento = st.slider(
             "Recomendação para desenvolvimento",
@@ -405,7 +405,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 4**")
-        st.caption("Segurança para se expressar")
+        st.caption("Segurança para se expressar: Você sente que sua liderança escuta suas opiniões e promove um ambiente seguro para que a equipe se expresse sem julgamentos ou retaliações?")
     with col2:
         lideranca_seguranca = st.slider(
             "Segurança para se expressar",
@@ -418,7 +418,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 5**")
-        st.caption("Frequência de feedback construtivo")
+        st.caption("Frequência de feedback construtivo: Recebo feedbacks construtivos na frequência adequada")
     with col2:
         lideranca_feedback = st.slider(
             "Frequência de feedback",
@@ -436,7 +436,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 6**")
-        st.caption("Clareza e frequência da comunicação")
+        st.caption("Clareza e frequência da comunicação: Sua liderança comunica as informações importantes com frequência adequada e de forma clara?")
     with col2:
         comunicacao_clareza = st.slider(
             "Clareza da comunicação",
@@ -449,7 +449,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 7**")
-        st.caption("Informações para desempenho")
+        st.caption("Informações para desempenho: Recebo as informações necessárias para o desempenho das minhas atividades e tenho clareza sobre as expectativas da empresa em relação ao meu trabalho.")
     with col2:
         comunicacao_informacoes = st.slider(
             "Informações para desempenho",
@@ -467,7 +467,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 8**")
-        st.caption("Reconhecimento pelo resultado")
+        st.caption("Reconhecimento pelo resultado: Através da liderança sou reconhecido pelo resultado do meu trabalho.")
     with col2:
         reconhecimento_geral = st.slider(
             "Reconhecimento pelo resultado",
@@ -480,7 +480,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 9**")
-        st.caption("Justiça em elogios e correções")
+        st.caption("Justiça em elogios e correções: Os elogios e correções são realizados de forma justa e imparcial?")
     with col2:
         reconhecimento_justica = st.slider(
             "Justiça em elogios",
@@ -493,7 +493,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 10**")
-        st.caption("Eficácia do reconhecimento")
+        st.caption("Eficácia do reconhecimento: Sinto que a forma com que meu trabalho é reconhecido é eficaz e justo.")
     with col2:
         reconhecimento_eficacia = st.slider(
             "Eficácia do reconhecimento",
