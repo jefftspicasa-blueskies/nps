@@ -11,22 +11,10 @@ from config import Config
 from duplicidade_control import DuplicidadeControl, verificar_permissao_resposta
 from streamlit_javascript import st_javascript
 
-# Baixar a imagem da URL
-url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqoGiJZ_Fw_rBnHEUiMud8jLXpQ-VfQ4-4-_Ucdp1l1A&s=10"
-response = requests.get(url)
-image_data = response.content
-
-# Converter para Base64
-base64_image = base64.b64encode(image_data).decode()
-
-# Criar um arquivo temporário
-with open("temp_icon.png", "wb") as f:
-    f.write(image_data)
-
 # Configuração da página
 st.set_page_config(
     page_title="Pesquisa eNPS - 1º Trimestre 2026",
-    page_icon="temp_icon.png",  # Usando o arquivo baixado
+    page_icon="📊",
     layout="wide"
 )
 
