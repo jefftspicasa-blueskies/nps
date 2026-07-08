@@ -9,11 +9,11 @@ class Config:
     # CONFIGURAÇÕES DO BANCO DE DADOS
     # ALTERE AQUI COM SEUS DADOS!
     # ============================================
-    DB_HOST = '192.168.0.24'
-    DB_PORT = '5432'
-    DB_NAME = 'blue_raw'
+    DB_HOST = 'hayabusa.proxy.rlwy.net'
+    DB_PORT = '12440'
+    DB_NAME = 'railway'
     DB_USER = 'postgres'
-    DB_PASSWORD = 'blsks26'  # <-- COLOQUE SUA SENHA AQUI
+    DB_PASSWORD = 'pLdtmXrUGVCxLeEOZymkgbncAbvmagJI'  # <-- COLOQUE SUA SENHA AQUI
     DB_SCHEMA = 'trusted'
     
     # Configurações de segurança
