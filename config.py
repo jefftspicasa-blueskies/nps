@@ -9,11 +9,11 @@ class Config:
     # CONFIGURAÇÕES DO BANCO DE DADOS
     # ALTERE AQUI COM SEUS DADOS!
     # ============================================
-    DB_HOST = 'hayabusa.proxy.rlwy.net'
-    DB_PORT = '12440'
+    DB_HOST = 'tokaido.proxy.rlwy.net'
+    DB_PORT = '27106'
     DB_NAME = 'railway'
     DB_USER = 'postgres'
-    DB_PASSWORD = 'pLdtmXrUGVCxLeEOZymkgbncAbvmagJI'  # <-- COLOQUE SUA SENHA AQUI
+    DB_PASSWORD = 'AApgKSLEDBJzbYaMiNCGVaXcisiIXrII'  # <-- COLOQUE SUA SENHA AQUI
     DB_SCHEMA = 'trusted'
     
     # Configurações de segurança
