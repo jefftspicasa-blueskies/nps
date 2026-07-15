@@ -451,7 +451,7 @@ with st.form("enps_form"):
     col1, col2 = st.columns([1, 2])
     with col1:
         st.write("**Pergunta 7**")
-        st.caption("Informações para desempenho: Recebo as informações necessárias para o desempenho das minhas atividades e tenho clareza sobre as expectativas da empresa em relação ao meu trabalho?")
+        st.caption("Informações para desempenho: Recebo as informações necessárias para o desempenho das minhas atividades e tenho clareza sobre as expectativas da empresa em relação ao meu trabalho.")
     with col2:
         comunicacao_informacoes = st.slider(
             "Informações para desempenho",
@@ -550,6 +550,11 @@ with st.form("enps_form"):
 with st.sidebar:
     st.image("https://img.icons8.com/color/96/000000/rating.png", width=80)
     st.title("ℹ️ Informações")
+    st.markdown("---")
+    
+    st.markdown("### 🔐 Administração")
+    st.link_button("Abrir Dashboard Admin", url="admin_dashboard.py", use_container_width=True)
+    
     st.markdown("---")
     st.markdown(f"""
     **📋 Sobre a pesquisa**
