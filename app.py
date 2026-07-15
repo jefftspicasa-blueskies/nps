@@ -307,7 +307,7 @@ if 'respostas_enviadas' not in st.session_state:
 if not pode_responder:
     st.markdown(f"""
     <div class='blocked-message'>
-        <h2>⛔ Acesso Bloqueado</h2>
+        <h2>✅ Respostas Enviadas!</h2>
         <p style='font-size: 18px;'>{mensagem}</p>
         <p style='color: #666; margin-top: 20px;'>
             Esta pesquisa permite apenas uma resposta por usuário para garantir a integridade dos dados.
