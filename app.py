@@ -551,11 +551,6 @@ with st.sidebar:
     st.image("https://img.icons8.com/color/96/000000/rating.png", width=80)
     st.title("ℹ️ Informações")
     st.markdown("---")
-    
-    if st.button("🔐 Abrir Dashboard Admin", use_container_width=True):
-        st.switch_page("admin_dashboard.py")
-    
-    st.markdown("---")
     st.markdown(f"""
     **📋 Sobre a pesquisa**
     
