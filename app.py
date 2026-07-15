@@ -303,6 +303,54 @@ st.divider()
 if 'respostas_enviadas' not in st.session_state:
     st.session_state.respostas_enviadas = False
 
+def render_sidebar():
+    with st.sidebar:
+        st.image("https://img.icons8.com/color/96/000000/rating.png", width=80)
+        st.title("ℹ️ Informações")
+        st.markdown("---")
+        st.markdown(f"""
+        **📋 Sobre a pesquisa**
+        
+        Esta pesquisa avalia:
+        - 👥 Liderança
+        - 💬 Comunicação  
+        - 🏆 Reconhecimento
+        
+        **⏱️ Tempo estimado:** 3-5 minutos
+        
+        **🔒 Privacidade:** 
+        Suas respostas são anônimas e confidenciais.
+        
+        **🛡️ Resposta única:**
+        Cada usuário pode responder apenas uma vez.
+        
+        **🗄️ Schema:** `{config.DB_SCHEMA}`
+        
+        **🖥️ Status:** {fingerprint_status}
+        """)
+        st.markdown("---")
+        st.markdown("""
+        <style>
+        div[data-testid="stSidebar"] .admin-btn button {
+            border: 2px solid #dc3545 !important;
+            color: #dc3545 !important;
+            background-color: transparent !important;
+            font-weight: bold;
+        }
+        div[data-testid="stSidebar"] .admin-btn button:hover {
+            background-color: #dc3545 !important;
+            color: white !important;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+        with st.container():
+            st.markdown('<div class="admin-btn">', unsafe_allow_html=True)
+            if st.button("🔐 Acessar Dashboard Admin", use_container_width=True):
+                st.switch_page("admin_dashboard.py")
+            st.markdown('</div>', unsafe_allow_html=True)
+
+render_sidebar()
+
 # Verificar se o usuário já respondeu
 if not pode_responder:
     st.markdown(f"""
@@ -545,49 +593,3 @@ with st.form("enps_form"):
             if salvar_respostas(respostas):
                 st.session_state.respostas_enviadas = True
                 st.rerun()
-
-# Sidebar com informações
-with st.sidebar:
-    st.image("https://img.icons8.com/color/96/000000/rating.png", width=80)
-    st.title("ℹ️ Informações")
-    st.markdown("---")
-    st.markdown(f"""
-    **📋 Sobre a pesquisa**
-    
-    Esta pesquisa avalia:
-    - 👥 Liderança
-    - 💬 Comunicação  
-    - 🏆 Reconhecimento
-    
-    **⏱️ Tempo estimado:** 3-5 minutos
-    
-    **🔒 Privacidade:** 
-    Suas respostas são anônimas e confidenciais.
-    
-    **🛡️ Resposta única:**
-    Cada usuário pode responder apenas uma vez.
-    
-    **🗄️ Schema:** `{config.DB_SCHEMA}`
-    
-    **🖥️ Status:** {fingerprint_status}
-    """)
-    st.markdown("---")
-    st.markdown("""
-    <style>
-    div[data-testid="stSidebar"] .admin-btn button {
-        border: 2px solid #dc3545 !important;
-        color: #dc3545 !important;
-        background-color: transparent !important;
-        font-weight: bold;
-    }
-    div[data-testid="stSidebar"] .admin-btn button:hover {
-        background-color: #dc3545 !important;
-        color: white !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    with st.container():
-        st.markdown('<div class="admin-btn">', unsafe_allow_html=True)
-        if st.button("🔐 Acessar Dashboard Admin", use_container_width=True):
-            st.switch_page("admin_dashboard.py")
-        st.markdown('</div>', unsafe_allow_html=True)
