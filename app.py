@@ -552,8 +552,8 @@ with st.sidebar:
     st.title("ℹ️ Informações")
     st.markdown("---")
     
-    st.markdown("### 🔐 Administração")
-    st.link_button("Abrir Dashboard Admin", url="admin_dashboard.py", use_container_width=True)
+    if st.button("🔐 Abrir Dashboard Admin", use_container_width=True):
+        st.switch_page("admin_dashboard.py")
     
     st.markdown("---")
     st.markdown(f"""
