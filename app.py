@@ -571,3 +571,23 @@ with st.sidebar:
     
     **🖥️ Status:** {fingerprint_status}
     """)
+    st.markdown("---")
+    st.markdown("""
+    <style>
+    div[data-testid="stSidebar"] .admin-btn button {
+        border: 2px solid #dc3545 !important;
+        color: #dc3545 !important;
+        background-color: transparent !important;
+        font-weight: bold;
+    }
+    div[data-testid="stSidebar"] .admin-btn button:hover {
+        background-color: #dc3545 !important;
+        color: white !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    with st.container():
+        st.markdown('<div class="admin-btn">', unsafe_allow_html=True)
+        if st.button("🔐 Acessar Dashboard Admin", use_container_width=True):
+            st.switch_page("admin_dashboard.py")
+        st.markdown('</div>', unsafe_allow_html=True)
