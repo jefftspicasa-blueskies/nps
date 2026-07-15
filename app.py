@@ -305,6 +305,7 @@ if 'respostas_enviadas' not in st.session_state:
 
 def render_sidebar():
     with st.sidebar:
+        admin_dashboard_url = st.secrets.get("ADMIN_DASHBOARD_URL", "http://localhost:8502")
         st.image("https://img.icons8.com/color/96/000000/rating.png", width=80)
         st.title("ℹ️ Informações")
         st.markdown("---")
@@ -331,23 +332,23 @@ def render_sidebar():
         st.markdown("---")
         st.markdown("""
         <style>
-        div[data-testid="stSidebar"] .admin-btn button {
+        div[data-testid="stSidebar"] div.stLinkButton > a {
             border: 2px solid #dc3545 !important;
             color: #dc3545 !important;
             background-color: transparent !important;
             font-weight: bold;
         }
-        div[data-testid="stSidebar"] .admin-btn button:hover {
+        div[data-testid="stSidebar"] div.stLinkButton > a:hover {
             background-color: #dc3545 !important;
             color: white !important;
         }
         </style>
         """, unsafe_allow_html=True)
-        with st.container():
-            st.markdown('<div class="admin-btn">', unsafe_allow_html=True)
-            if st.button("🔐 Acessar Dashboard Admin", use_container_width=True):
-                st.switch_page("admin_dashboard.py")
-            st.markdown('</div>', unsafe_allow_html=True)
+        st.link_button(
+            "🔐 Acessar Dashboard Admin",
+            admin_dashboard_url,
+            use_container_width=True
+        )
 
 render_sidebar()
 
